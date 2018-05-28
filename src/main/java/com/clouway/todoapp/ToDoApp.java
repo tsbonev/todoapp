@@ -18,7 +18,8 @@ public class ToDoApp {
 
             commandLineInputHandler.printOptions();
             String input = commandLineInputHandler.readInput();
-            command = CharUtils.toChar(input, DEFAULT_INPUT);
+            char[] inputChars = input.length() == 1 ? input.toCharArray() : new char[] { DEFAULT_INPUT };
+            command = inputChars[0];
             CommandLineInput commandLineInput = CommandLineInput.getCommandLineInputForInput(command);
             commandLineInputHandler.processInput(commandLineInput);
 
